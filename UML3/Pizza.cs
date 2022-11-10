@@ -8,24 +8,15 @@ namespace BigMammaUML3
 {
     public class Pizza : MenuItem
     {
+        public Pizza(int Number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic) : base(Number, name, description, price, type, isVegan, isOrganic) { }
+  
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        public bool DeepPan { get; set; }
+public bool DeepPan { get; set; }
 
 
         public bool isVegan { get; set; }
@@ -33,9 +24,10 @@ namespace BigMammaUML3
 
         public bool isOrganic { get; set; }
 
-       public override  string PrintInfo()
+        public override string PrintInfo()
         {
-            return null;
+            return $"number{Number} name{Name} description{Description} price{Price} type{Type} vegan{IsVegan} organic{IsOrganic}";
         }
+
     }
 }
