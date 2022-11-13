@@ -9,10 +9,7 @@ namespace BigMammaUML3
 {
     public class MenuItem : IMenuItem
     {
-        public MenuItem(string name, string price)
-        {
-            Name = name;
-        }
+
 
         public MenuItem(int number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic)
         {
@@ -23,20 +20,20 @@ namespace BigMammaUML3
             IsVegan = isVegan;
             IsOrganic = isOrganic;
         }
-        private List<Pasta> _pasta;
-        private List<Pizza> _pizza;
-        public int Number => throw new NotImplementedException();
+        //private List<Pasta> _pasta;
+        //private List<Pizza> _pizza;
+        public int Number { get; set; }
 
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public MenuType Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsVegan { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool IsOrganic { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public MenuType Type { get; set; }
+        public bool IsVegan { get; set; }
+        public bool IsOrganic { get; set; }
 
         public virtual string PrintInfo()
         {
-            return null;
+            return $"Number {Number} .......";
         }
     }
 

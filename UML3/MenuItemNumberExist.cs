@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BigMammaUML3
 {
-    internal class MenuItemNumberExist
+    internal class MenuItemNumberExist: Exception
     {
     }
 }

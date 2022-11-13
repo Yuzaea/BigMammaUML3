@@ -8,12 +8,18 @@ namespace BigMammaUML3
 {
     public  class MenuCatalog : IMenuCatalog
     {
+        private List<IMenuItem> _items;
 
-        public int Count => throw new NotImplementedException();
+        public int Count
+        {
+            get { return _items.Count; }
+        }
 
         public void Add(IMenuItem aMenuItem)
         {
-            throw new NotImplementedException();
+            IMenuItem foundMenuItem = Search(aMenuItem.Number);
+            if (foundMenuItem == null)
+                _items.Add(aMenuItem);
         }
 
         public void Delete(int number)
@@ -53,7 +59,12 @@ namespace BigMammaUML3
 
         public IMenuItem Search(int number)
         {
-            throw new NotImplementedException();
+            foreach (IMenuItem item in _items)
+            {
+                if (item.Number == number)
+                    return item;
+            }
+            return null;
         }
 
         public void Update(int number, IMenuItem theMenuItem)
