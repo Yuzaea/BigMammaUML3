@@ -24,7 +24,8 @@ namespace BigMammaUML3
 
         public void Delete(int number)
         {
-            throw new NotImplementedException();
+            IMenuItem item = Search(number);
+            _items.Remove(item);
         }
 
         public List<IMenuItem> FindAllOrganic(MenuType type)

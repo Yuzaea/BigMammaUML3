@@ -13,10 +13,16 @@ namespace BigMammaUML3
     public class Pasta : MenuItem
     {
         public string PastaType { get; set; }
-        public Pasta(int Number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic) : base (Number, name, description, price, type, isVegan, isOrganic) { }
+        public Pasta(int Number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic, string pastaType) : base(Number, name, description, price, type, isVegan, isOrganic)
+        {
+            PastaType = pastaType;
+        }
+
+
         public override string PrintInfo()
         {
-            return $"number{Number} name{Name} description{Description} price{Price} type{Type} vegan{IsVegan} organic{IsOrganic}";
+            return base.PrintInfo() + $"{PastaType}";
         }
+
     }
 }

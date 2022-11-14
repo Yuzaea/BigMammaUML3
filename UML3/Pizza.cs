@@ -12,11 +12,6 @@ namespace BigMammaUML3
         {
             DeepPan = deepPan;
         }
-  
-
-
-
-
 
 
         public bool DeepPan { get; set; }
