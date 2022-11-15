@@ -20,8 +20,6 @@ namespace BigMammaUML3
             IsVegan = isVegan;
             IsOrganic = isOrganic;
         }
-        //private List<Pasta> _pasta;
-        //private List<Pizza> _pizza;
         public int Number { get; set; }
 
         public string Name { get; set; }

@@ -30,12 +30,24 @@ namespace BigMammaUML3
 
         public List<IMenuItem> FindAllOrganic(MenuType type)
         {
-            throw new NotImplementedException();
+            foreach (IMenuItem item in _items)
+            {
+                if (item.IsOrganic == true)
+                    Console.WriteLine(item);
+                return _items;
+            }
+            return null;
         }
 
         public List<IMenuItem> FindAllVegan(MenuType type)
         {
-            throw new NotImplementedException();
+            foreach (IMenuItem item in _items)
+            {
+                if (item.IsVegan == true)
+                    Console.WriteLine(item);
+                    return _items;
+            }
+            return null;
         }
 
         public IMenuItem MostExpensiveMenuItem()
@@ -50,12 +62,18 @@ namespace BigMammaUML3
 
         public void PrintPizzasMenu()
         {
-            throw new NotImplementedException();
+            foreach (Pizza pizza in _items)
+            {
+                Console.WriteLine(_items);
+            }
         }
 
         public void PrintToppingsMenu()
         {
-            throw new NotImplementedException();
+            foreach (Topping topping in _items)
+            {
+                Console.WriteLine(topping);
+            }
         }
 
         public IMenuItem Search(int number)
@@ -70,7 +88,10 @@ namespace BigMammaUML3
 
         public void Update(int number, IMenuItem theMenuItem)
         {
-            throw new NotImplementedException();
+            IMenuItem foundMenuItem = Search(theMenuItem.Number);
+            if (foundMenuItem == null)
+            {
+            }
         }
     }
 }
