@@ -11,21 +11,21 @@ namespace BigMamaUML3Test
         public void TestAdd()
         {
             //arrange
-
             IMenuCatalog catalog;
             catalog = new MenuCatalog();
 
             Pizza pi1 = new Pizza(1, "poop", "poopy", 25, MenuType.Pizza, true, true, true);
             Pizza pi2 = new Pizza(2, "poopasa", "poopasdy", 255, MenuType.Pizza, false, false, false);
-
+            Pizza pi3 = new Pizza(3, "poopasa", "poopasdy", 25232325.00, MenuType.Pizza, false, false, false);
             //act
             int ValuveBefore = catalog.Count;
-            catalog.Add(pi1);
             catalog.Add(pi2);
+            catalog.Add(pi1);
+            catalog.Add(pi3);
             int ValueAfter = catalog.Count;
             //assert
 
-            Assert.AreEqual(ValuveBefore+2, ValueAfter);
+            Assert.AreEqual(ValuveBefore+3, ValueAfter);
 
         }
         [TestMethod]
@@ -87,17 +87,42 @@ namespace BigMamaUML3Test
             IMenuCatalog catalog;
             catalog = new MenuCatalog();
 
-            Pizza pi1 = new Pizza(1, "poop", "poopy", 25, MenuType.Pizza, true, true, true);
-            Pizza pi2 = new Pizza(2, "poopasa", "poopasdy", 255, MenuType.Pizza, false, false, false);
+            Pizza pi1 = new Pizza(1, "poop", "poopy", 25232, MenuType.Pizza, true, true, true);
+            Pizza pi2 = new Pizza(2, "poopasa", "poopasdy", 2, MenuType.Pizza, false, false, false);
+            Pizza pi3 = new Pizza(3, "poopasasa", "poopasdawy", 705364565, MenuType.Pizza, false, false, false);
             //act
             catalog.Add(pi2);
             catalog.Add(pi1);
+            catalog.Add(pi3);
 
             //assert
 
-            Assert.AreEqual(pi2.Price, catalog.MostExpensiveMenuItem().Price);
+            Assert.AreEqual(pi3.Price, catalog.MostExpensiveMenuItem().Price);
 
 
+
+        }
+        [TestMethod]
+        public void TestPrintBeveragesMenu()
+        {
+            //arrange 
+            IMenuCatalog catalog;
+            catalog = new MenuCatalog();
+
+            Beverage pi1 = new Beverage(1, "poop", "poopy", 25232, MenuType.Beverage, true, true, true);
+            Beverage pi2 = new Beverage(2, "poopasa", "poopasdy", 2, MenuType.Beverage, false, false, false);
+            Beverage pi3 = new Beverage(3, "poopasasa", "poopasdawy", 705364565, MenuType.Beverage, false, false, false);
+
+            //act
+            catalog.Add(pi2);
+            catalog.Add(pi1);
+            catalog.Add(pi3);
+
+            //assert
+
+
+            //Assert.AreEqual(pi1, catalog.PrintBeveragesMenu(pi1));
+            //Assert.AreEqual(pi2, catalog.Search(2));
 
         }
     }

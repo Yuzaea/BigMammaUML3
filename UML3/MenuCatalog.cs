@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +34,10 @@ namespace BigMammaUML3
 
         public void Delete(int number)
         {
+            if (_menuItems.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
             IMenuItem item = Search(number);
             _menuItems.Remove(item);
         }
@@ -62,41 +68,72 @@ namespace BigMammaUML3
 
         public IMenuItem MostExpensiveMenuItem()
         {
-            foreach (IMenuItem item in _menuItems)
+            //double pleasework = double.MinValue;
+            //int t = 0;
+            if (_menuItems.Count == 0)
             {
-                _menuItems.Max(t => t.Price);
-                return item;
-
+                throw new InvalidOperationException("Empty list");
             }
-            return null;
+            //foreach (IMenuItem item in _menuItems)
+            //{
+            //    t++;
+            //    if (item.Price > pleasework)
+            //    {
+            //        //pleasework = _menuItems.Max(t => t.Price);
+            //        //pleasework = item.Price;
+            //        int value = item.Number;
+            //        return _menuItems[value];
+            //    }
+            //    //if (t == _menuItems.Count)
+
+            //}
+            //return null;
+            // This is sooo sad ):
+            // Overcomplicated it as hell )::::::: sadge
+
+            var pleasework = _menuItems.MaxBy(x => x.Price);
+            return pleasework;
         }
 
         public void PrintBeveragesMenu()
         {
-            foreach (Beverage Beverage in _items)
+            if (_menuItems.Count == 0)
             {
-                Console.WriteLine(Beverage);
+                throw new InvalidOperationException("Empty list");
+            }
+            foreach (IMenuItem Beverage in _menuItems)
+            {
+                Console.WriteLine(Beverage.PrintInfo());
             }
         }
 
         public void PrintPizzasMenu()
         {
-            foreach (Pizza pizza in _menuItems)
+            if (_menuItems.Count == 0)
             {
-                Console.WriteLine(_menuItems);
+                throw new InvalidOperationException("Empty list");
+            }
+            foreach (IMenuItem pizza in _menuItems)
+            {
+                Console.WriteLine(pizza.PrintInfo());
             }
         }
 
         public void PrintToppingsMenu()
         {
-            foreach (Topping topping in _menuItems)
+            if (_menuItems.Count == 0)
             {
-                Console.WriteLine(topping);
+                throw new InvalidOperationException("Empty list");
+            }
+            foreach (IMenuItem topping in _menuItems)
+            {
+                Console.WriteLine(topping.PrintInfo());
             }
         }
 
         public IMenuItem Search(int number)
         {
+
             foreach (IMenuItem item in _menuItems)
             {
                 if (item.Number == number)
@@ -107,6 +144,10 @@ namespace BigMammaUML3
 
         public void Update(int number, IMenuItem theMenuItem)
         {
+            if (_menuItems.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
             IMenuItem foundMenuItem = Search(theMenuItem.Number);
             if (foundMenuItem == null)
             {

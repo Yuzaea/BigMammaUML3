@@ -9,7 +9,7 @@ namespace BigMammaUML3
     internal class AlcoholicDrink : MenuItem
     {
 
-        public AlcoholicDrink(int Number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic, string pastaType,bool IsAlcoholic) : base(Number, name, description, price, type, isVegan, isOrganic)
+        public AlcoholicDrink(int Number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic,bool IsAlcoholic) : base(Number, name, description, price, type, isVegan, isOrganic)
         {
             isAlcoholic = IsAlcoholic;
         }

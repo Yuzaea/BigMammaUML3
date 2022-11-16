@@ -9,7 +9,7 @@ namespace BigMammaUML3
     public enum MenuType { Pizza, Pasta, Topping, Beverage }
     public interface IMenuItem
     {
-        int Number { get; }
+        int Number { get;}
         string Name { get; set; }
         string Description { get; set; }
         double Price { get; set; }

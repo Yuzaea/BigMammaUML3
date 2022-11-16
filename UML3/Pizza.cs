@@ -13,9 +13,7 @@ namespace BigMammaUML3
             DeepPan = deepPan;
         }
 
-
         public bool DeepPan { get; set; }
-
 
 
         public override string PrintInfo()

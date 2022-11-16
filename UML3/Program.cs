@@ -8,16 +8,13 @@
 IMenuCatalog catalog;
 catalog = new MenuCatalog();
 
-Pizza pi1 = new Pizza(1,"poop","poopy",25,MenuType.Pizza,true,true,true);
-
-
-//SoftDrink s1 = new SoftDrink(3, "øl", "smager af lort", 20, MenuType.Beverage, true, true, "");
-Console.WriteLine($"for add{catalog.Count}");
-catalog.Add(pi1);
-Console.WriteLine($"efter add{catalog.Count}");
+Pizza pi1 = new Pizza(1, "poop", "poopy", 25, MenuType.Pizza, true, true, true);
 Pizza pi2 = new Pizza(2, "poopasa", "poopasdy", 255, MenuType.Pizza, false, false, false);
+Pizza pi3 = new Pizza(3, "poopasa", "poopasdy", 25232325, MenuType.Pizza, false, false, false);
+//act
 catalog.Add(pi2);
-Console.WriteLine($"efter add{catalog.Count}");
+catalog.Add(pi1);
+catalog.Add(pi3);
 
 //List<IMenuItem> veganItems=catalog.FindAllVegan(MenuType.Pizza);
 //foreach (IMenuItem veganItem in veganItems)
@@ -30,9 +27,14 @@ Console.WriteLine($"efter add{catalog.Count}");
 //Console.WriteLine(pi1);
 
 
-Console.WriteLine(catalog.Search(1).PrintInfo());   
-Console.WriteLine(catalog.Search(number: 2));
+Beverage b1 = new Beverage(4, "poop", "poopy", 25232, MenuType.Beverage, true, true, true);
+Beverage b2 = new Beverage(5, "poopasa", "poopasdy", 2, MenuType.Beverage, false, false, false);
+Beverage b3 = new Beverage(6, "poopasasa", "poopasdawy", 705364565, MenuType.Beverage, false, false, false);
+
+//act
+catalog.Add(b1);
+catalog.Add(b2);
+catalog.Add(b2);
 
 
-
-Console.WriteLine(catalog.MostExpensiveMenuItem().PrintInfo);
+catalog.PrintBeveragesMenu();
