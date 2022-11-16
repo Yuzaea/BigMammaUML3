@@ -17,10 +17,10 @@ namespace BigMammaUML3
         public bool DeepPan { get; set; }
 
 
-        
+
         public override string PrintInfo()
         {
-            return base.PrintInfo() + $"deep {  (DeepPan== true ? "Er deeppan" : "normal") }  ";
+            return base.PrintInfo() + $"{  (DeepPan== true ? "It is Deepan" : "It's not Deepan") }  ";
         }
 
     }

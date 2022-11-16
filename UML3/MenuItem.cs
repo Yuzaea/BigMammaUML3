@@ -13,6 +13,7 @@ namespace BigMammaUML3
 
         public MenuItem(int number, string name, string description, double price, MenuType type, bool isVegan, bool isOrganic)
         {
+            Number = number;
             Name = name;
             Description = description;
             Price = price;
@@ -28,11 +29,14 @@ namespace BigMammaUML3
         public MenuType Type { get; set; }
         public bool IsVegan { get; set; }
         public bool IsOrganic { get; set; }
-
-        public virtual string PrintInfo()
+                 
+    public virtual string PrintInfo()
         {
-            return $"Number {Number} .......";
+            return $"Number: {Number}. Name: {Name}. Description: {Description}. Price: {Price}. Type: {Type}. {(IsVegan== true ? "It is Vegan" : "It's not vegan")} .{(IsOrganic==true ? " It is Organic" : " It's not organic")}.  ";
         }
+
+
+
     }
 
 }
