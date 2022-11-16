@@ -57,14 +57,17 @@ namespace BigMammaUML3
 
         public void PrintBeveragesMenu()
         {
-            throw new NotImplementedException();
+            foreach (Beverage Beverage in _items)
+            {
+                Console.WriteLine(Beverage);
+            }
         }
 
         public void PrintPizzasMenu()
         {
             foreach (Pizza pizza in _items)
             {
-                Console.WriteLine(_items);
+                Console.WriteLine(pizza);
             }
         }
 
