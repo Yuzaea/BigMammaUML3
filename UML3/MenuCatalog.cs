@@ -44,25 +44,33 @@ namespace BigMammaUML3
 
         public List<IMenuItem> FindAllOrganic(MenuType type)
         {
+            if (_menuItems.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            List<IMenuItem> list = new List<IMenuItem>();
             foreach (IMenuItem item in _menuItems)
             {
                 if (item.IsOrganic == true)
-                    Console.WriteLine(item);
-                return _menuItems;
+                    list.Add(item);
             }
-            return null;
+            return list;
         }
         //Skal være en liste
 
         public List<IMenuItem> FindAllVegan(MenuType type)
         {
+            if (_menuItems.Count == 0)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            List<IMenuItem> list = new List<IMenuItem>();
             foreach (IMenuItem item in _menuItems)
             {
                 if (item.IsVegan == true)
-                    Console.WriteLine(item);
-                    return _menuItems;
+                list.Add(item);
             }
-            return null;
+            return list;
         }
         //Skal være en liste
 
