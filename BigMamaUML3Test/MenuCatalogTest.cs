@@ -147,6 +147,27 @@ namespace BigMamaUML3Test
 
         }
 
+        [TestMethod]
+        public void TestFindAllIsOrganic()
+        {
+
+            IMenuCatalog catalog;
+            catalog = new MenuCatalog();
+
+            Beverage pi1 = new Beverage(1, "poop", "poopy", 25232, MenuType.Beverage, true, true, true);
+            Beverage pi2 = new Beverage(2, "poopasa", "poopasdy", 2, MenuType.Beverage, false, false, false);
+            Beverage pi3 = new Beverage(3, "poopasasa", "poopasdawy", 705364565, MenuType.Beverage, true, true, false);
+
+
+            catalog.Add(pi2);
+            catalog.Add(pi1);
+            catalog.Add(pi3);
+
+
+
+            Assert.AreEqual(catalog.FindAllOrganic(MenuType.Beverage).Count, 2);
+        }
+
     }
 
 }

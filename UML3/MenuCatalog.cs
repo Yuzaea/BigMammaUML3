@@ -56,7 +56,6 @@ namespace BigMammaUML3
             }
             return list;
         }
-        //Skal være en liste
 
         public List<IMenuItem> FindAllVegan(MenuType type)
         {
@@ -72,7 +71,6 @@ namespace BigMammaUML3
             }
             return list;
         }
-        //Skal være en liste
 
         public IMenuItem MostExpensiveMenuItem()
         {
