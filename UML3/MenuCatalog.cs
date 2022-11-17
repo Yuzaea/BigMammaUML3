@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace BigMammaUML3
 {
-    public  class MenuCatalog : IMenuCatalog
+    public class MenuCatalog : IMenuCatalog
     {
         private List<IMenuItem> _menuItems;
 
 
         public MenuCatalog()
         {
-            _menuItems=new List<IMenuItem>();
+            _menuItems = new List<IMenuItem>();
         }
         public int Count
         {
@@ -29,6 +29,8 @@ namespace BigMammaUML3
             {
                 _menuItems.Add(aMenuItem);
             }
+            else
+                throw new MenuItemNumberExist("fejl meddelse item med det number eksistere allerede");
 
         }
 
@@ -67,7 +69,7 @@ namespace BigMammaUML3
             foreach (IMenuItem item in _menuItems)
             {
                 if (item.IsVegan == true)
-                list.Add(item);
+                    list.Add(item);
             }
             return list;
         }
@@ -150,13 +152,20 @@ namespace BigMammaUML3
 
         public void Update(int number, IMenuItem theMenuItem)
         {
+            int indexValue = 0;
             if (_menuItems.Count == 0)
             {
                 throw new InvalidOperationException("Empty list");
             }
-            IMenuItem foundMenuItem = Search(theMenuItem.Number);
+            IMenuItem foundMenuItem = Search(number);
+
             if (foundMenuItem == null)
             {
+                throw new InvalidOperationException("Item der søges efter eksisterer ikke");
+            }
+            else
+            {
+                _menuItems[_menuItems.IndexOf(foundMenuItem)] = theMenuItem;
             }
         }
     }

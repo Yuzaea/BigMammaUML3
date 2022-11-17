@@ -25,7 +25,7 @@ namespace BigMamaUML3Test
             int ValueAfter = catalog.Count;
             //assert
 
-            Assert.AreEqual(ValuveBefore+3, ValueAfter);
+            Assert.AreEqual(ValuveBefore + 3, ValueAfter);
 
         }
         [TestMethod]
@@ -51,7 +51,7 @@ namespace BigMamaUML3Test
 
             //assert
 
-            Assert.AreEqual(ValuveBefore-1, ValueAfter);
+            Assert.AreEqual(ValuveBefore - 1, ValueAfter);
 
         }
         [TestMethod]
@@ -76,9 +76,9 @@ namespace BigMamaUML3Test
 
             //assert
 
-            Assert.AreEqual(pi1 ,catalog.Search(1));
+            Assert.AreEqual(pi1, catalog.Search(1));
             Assert.AreEqual(pi2, catalog.Search(2));
-            
+
         }
         [TestMethod]
         public void TestSMostExpensiveItem()
@@ -167,7 +167,30 @@ namespace BigMamaUML3Test
 
             Assert.AreEqual(catalog.FindAllOrganic(MenuType.Beverage).Count, 2);
         }
+        [TestMethod]
+        public void TestUpdate()
+        {
+            //arange
+            IMenuCatalog catalog;
+            catalog = new MenuCatalog();
+
+            Pizza pi3 = new Pizza(3, "poopasa", "poopasdy", 2, MenuType.Pizza, false, false, false);
+            Pizza pi3new = new Pizza(3, "poopasa", "poopasdy", 50, MenuType.Pizza, false, false, false);
+
+            //act
+
+            catalog.Add(pi3);
+
+            catalog.Update(3, pi3new);
+
+            //assert
+
+
+
+            Assert.AreEqual(50, catalog.Search(3).Price);
+
+
+        }
 
     }
-
 }

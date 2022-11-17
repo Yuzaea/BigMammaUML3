@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BigMammaUML3
 {
-    internal class MenuItemNumberExist: Exception
+    public class MenuItemNumberExist: Exception
     {
+
+        public MenuItemNumberExist(string message) : base(message)
+        {
+
+        }
     }
 }
